@@ -1,0 +1,10 @@
+name: testing
+on: [push]
+jobs:
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone project
+        uses: actions/checkout@v3 
+      - name: install dep
+        run: yarn install 
