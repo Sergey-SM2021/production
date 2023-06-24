@@ -41,7 +41,7 @@
     "start": "webpack serve",
     "build": "webpack --env MODE=production",
     "storybook": "storybook dev -c config/.storybook",
-    "test:loki": "build-storybook && loki --requireReference --reactUri file:./storybook-static"
+    "test:loki": "storybook build -c config/.storybook && loki --requireReference --reactUri file:./storybook-static"
   },
   "typeRoots": [
     "./src/index.d.ts"
