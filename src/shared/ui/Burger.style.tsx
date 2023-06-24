@@ -26,7 +26,7 @@ export const BurgerWrapper = styled.div<{ open: boolean }>`
   &::after,
   &::before,
   span {
-    /* background-color: #000; */
+    background-color: #000;
     width: 100%;
     height: 2px;
     display: ${({ open }) => (open ? "block" : "none")};
