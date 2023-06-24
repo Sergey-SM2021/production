@@ -1,14 +1,10 @@
 import { Header } from "widgets/Header/Header"
 import { BrowserRouter } from "react-router-dom"
-import { ThemeProvider } from "styled-components"
-
-const theme = {
-	black: "#2F3035",
-}
+import { ThemeProvider } from "./providers/themeProvider"
 
 export const App = () => {
 	return (
-		<ThemeProvider theme={theme}>
+		<ThemeProvider>
 			<BrowserRouter>
 				<div>
 					<Header></Header>

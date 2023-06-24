@@ -1,12 +1,8 @@
 import { StoryFn } from "@storybook/react"
-import { ThemeProvider } from "styled-components"
-
-const theme = {
-	black: "#2F3035",
-}
+import { ThemeProvider } from "App/providers/themeProvider"
 
 export const withTheme = (Story: StoryFn) => (
-	<ThemeProvider theme={theme}>
+	<ThemeProvider>
 		<Story />
 	</ThemeProvider>
 )
