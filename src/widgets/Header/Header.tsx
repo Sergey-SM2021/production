@@ -1,4 +1,4 @@
-import { Burger } from "shared/Burger.style"
+import { Burger } from "shared/ui/Burger.style"
 import {
 	HeaderBurger,
 	HeaderLink,
@@ -17,8 +17,8 @@ import Cart from "../assets/cart.svg"
 import Favorites from "../assets/favorites.svg"
 import Avatar from "../assets/avatar.svg"
 import Location from "../assets/Location.svg"
-import { Container } from "shared/Container.style"
-import { Text } from "shared/Text.style"
+import { Container } from "shared/ui/Container.style"
+import { Text } from "shared/ui/Text.style"
 import { useEffect, useRef, useState } from "react"
 
 const links = [
