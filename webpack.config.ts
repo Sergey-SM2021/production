@@ -3,11 +3,14 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 import { Configuration } from "webpack"
 import "webpack-dev-server"
 
-interface IProps {}
+interface IProps {
+  MODE: "development" | "production";
+}
 
 export default (props: IProps): Configuration => {
+	const { MODE = "development" } = props
 	return {
-		mode: "production",
+		mode: "development",
 		plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
 		module: {
 			rules: [
@@ -21,6 +24,11 @@ export default (props: IProps): Configuration => {
 						},
 					},
 				},
+				{
+					test: /\.svg$/i,
+					issuer: /\.[jt]sx?$/,
+					use: ["@svgr/webpack"],
+				},
 			],
 		},
 		entry: path.resolve("/", "index.tsx"),
@@ -28,10 +36,13 @@ export default (props: IProps): Configuration => {
 			path: path.resolve(__dirname, "dist"),
 			filename: "my-first-webpack.bundle.js",
 		},
-		devServer: {
-			open: true,
-			port: 9000,
-		},
+		devServer:
+      MODE === "development"
+      	? {
+      		open: true,
+      		port: 9000,
+      	}
+      	: undefined,
 		resolve: {
 			extensions: [".js", ".jsx", ".tsx", ".ts"],
 			modules: [path.resolve(__dirname, "src"), "node_modules"],
