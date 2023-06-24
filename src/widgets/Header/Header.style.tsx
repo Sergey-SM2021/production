@@ -6,6 +6,7 @@ export const HeaderWrapper = styled.div`
   grid-template-columns: 1fr 80px 1fr;
   align-items: center;
   gap: 90px;
+  position: relative;
   @media (max-width: 1200px) {
     gap: 30px;
   }
@@ -39,6 +40,8 @@ export const HeaderBurger = styled.div`
   display: none;
   @media (max-width: 900px) {
     display: block;
+    position: relative;
+    z-index: 1;
   }
 `
 
@@ -52,4 +55,34 @@ export const HeaderLinks = styled.div`
   @media (max-width: 900px) {
     display: none;
   }
+`
+
+export const HeaderMenu = styled.div`
+  box-sizing: border-box;
+  padding-top: 100px;
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 90%;
+  top: 0;
+  left: 0;
+  display: none;
+  background-color: #fff;
+  box-shadow: 1px 0 10px #0000001d;
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
+
+export const MenuLocationWrapper = styled.div`
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: flex-end;
+`
+
+export const MenuLocation = styled.div`
+  display: flex;
 `

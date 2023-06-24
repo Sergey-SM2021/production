@@ -1,15 +1,17 @@
-import { useState } from "react"
 import { styled } from "styled-components"
 
-export const Burger = () => {
-	const [isOpen, setIsOpen] = useState(true)
+interface BurgerProps {
+  isOpen: boolean;
+  onClick: () => void;
+}
 
-	const onChange = () => {
-		setIsOpen((prev) => !prev)
+export const Burger = ({ isOpen, onClick }: BurgerProps) => {
+	const handlerClick = (e) => {
+		e.stopPropagation()
+		onClick()
 	}
-
 	return (
-		<BurgerWrapper open={isOpen} onClick={onChange}>
+		<BurgerWrapper open={!isOpen} onClick={handlerClick}>
 			<span></span>
 		</BurgerWrapper>
 	)
