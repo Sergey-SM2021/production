@@ -29,6 +29,17 @@ export default (props: IProps): Configuration => {
 					issuer: /\.[jt]sx?$/,
 					use: ["@svgr/webpack"],
 				},
+				{
+					test: /\.css$/,
+					use: [
+						{
+							loader: "style-loader",
+						},
+						{
+							loader: "css-loader",
+						},
+					],
+				},
 			],
 		},
 		entry: path.resolve("/", "index.tsx"),
