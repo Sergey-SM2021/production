@@ -7,4 +7,6 @@ jobs:
       - name: clone project
         uses: actions/checkout@v3 
       - name: install dep
-        run: yarn install 
+        run: yarn install
+      - name: loki
+        run: yarn test:loki
