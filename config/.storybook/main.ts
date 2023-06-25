@@ -14,6 +14,7 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+
   webpackFinal(config, options) {
     config.resolve = {
       extensions: [".js", ".jsx", ".tsx", ".ts"],
@@ -21,6 +22,18 @@ const config: StorybookConfig = {
         path.resolve(__dirname, "../../", "src"),
         path.resolve(__dirname, "../../", "node_modules"),
       ],
+      fallback: {
+        fs: false,
+        tls: false,
+        net: false,
+        path: false,
+        zlib: false,
+        http: false,
+        https: false,
+        stream: false,
+        crypto: false,
+        "crypto-browserify": require.resolve("crypto-browserify"),
+      },
     };
 
     const svgRule = config.module?.rules?.find((rule) => {
@@ -43,4 +56,5 @@ const config: StorybookConfig = {
     return config;
   },
 };
+
 export default config;
