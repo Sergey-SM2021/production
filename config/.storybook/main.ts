@@ -1,6 +1,5 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import path from "path";
-import { RuleSetRule } from "webpack";
 const config: StorybookConfig = {
   stories: ["../../src/**/*.stories.@(ts|tsx)"],
   addons: [
@@ -18,7 +17,10 @@ const config: StorybookConfig = {
   webpackFinal(config, options) {
     config.resolve = {
       extensions: [".js", ".jsx", ".tsx", ".ts"],
-      modules: [path.resolve(__dirname, "../../", "src"), "node_modules"],
+      modules: [
+        path.resolve(__dirname, "../../", "src"),
+        path.resolve(__dirname, "../../", "node_modules"),
+      ],
     };
 
     const svgRule = config.module?.rules?.find((rule) => {

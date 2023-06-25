@@ -52,6 +52,7 @@ export default (props: IProps): Configuration => {
       	? {
       		open: true,
       		port: 9000,
+      		historyApiFallback: true,
       	}
       	: undefined,
 		resolve: {

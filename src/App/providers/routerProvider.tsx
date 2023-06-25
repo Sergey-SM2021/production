@@ -1,26 +1,22 @@
+import { MainPage } from "pages/MainPage"
 import {
 	createBrowserRouter,
 	RouterProvider as BrowserRouterProvider,
 	Outlet,
 } from "react-router-dom"
-import { Container } from "shared/ui/Container.style"
-import { Header } from "widgets/Header/Header"
-import { NavBar } from "widgets/NavBar/NavBar"
+import { Layout } from "widgets/layout/Layout"
 
 const router = createBrowserRouter([
 	{
+		errorElement: <div>Page notfound</div>,
 		element: (
-			<>
-				<Header />
-				<NavBar />
-				<Container>
-					<Outlet />
-				</Container>
-			</>
+			<Layout>
+				<Outlet />
+			</Layout>
 		),
 		children: [
 			{
-				element: <div>main</div>,
+				element: <MainPage />,
 				path: "",
 			},
 			{

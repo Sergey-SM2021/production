@@ -1,9 +1,6 @@
-import { Container } from "shared/ui/Container.style"
-import { NavBarLink, NavBarSlide, NavBarWrapper } from "./NavBar.style"
-import { Swiper } from "swiper/react"
-
+import { Swiper, SwiperProps, SwiperSlide } from "swiper/react"
 import "swiper/css"
-import { Text } from "shared/ui/Text.style"
+import { NavBarLink, NavBarWrapper } from "./NavBar.style"
 
 export const NavBar = () => {
 	const items = [
@@ -17,19 +14,20 @@ export const NavBar = () => {
 		"Запчасти",
 	]
 
+	const swiperConfig: SwiperProps = {
+		slidesPerView: "auto",
+		spaceBetween: 60,
+	}
+
 	return (
-		<Container>
-			<NavBarWrapper>
-				<Swiper slidesPerView={"auto"} spaceBetween={100}>
-					{items.map((el) => (
-						<NavBarSlide key={el}>
-							<Text>
-								<NavBarLink to={el}>{el}</NavBarLink>
-							</Text>
-						</NavBarSlide>
-					))}
-				</Swiper>
-			</NavBarWrapper>
-		</Container>
+		<NavBarWrapper>
+			<Swiper {...swiperConfig}>
+				{items.map((el) => (
+					<SwiperSlide style={{ width: "auto" }} key={el}>
+						<NavBarLink to={el}>{el}</NavBarLink>
+					</SwiperSlide>
+				))}
+			</Swiper>
+		</NavBarWrapper>
 	)
 }

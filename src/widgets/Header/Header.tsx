@@ -57,39 +57,37 @@ export const Header = () => {
 					</MenuLocationWrapper>
 				</HeaderMenu>
 			) : null}
-			<Container>
-				<HeaderWrapper>
-					<HeaderBurger>
-						<Burger
-							isOpen={isOpen}
-							onClick={() => {
-								setIsOpen((prev) => !prev)
-							}}
-						/>
-					</HeaderBurger>
-					<HeaderLinks>
-						{links.map((el) => (
-							<HeaderLink to={el.path} key={el.name}>
-								<Text bold>{el.name}</Text>
-							</HeaderLink>
-						))}
-					</HeaderLinks>
-					<HeaderLogo>
-						<Logo />
-					</HeaderLogo>
-					<HeaderUser>
-						<HeaderLoaction>
-							<Location />
-							<Text bold>Москва, ул. Науки 25</Text>
-						</HeaderLoaction>
-						<UserActions>
-							<Favorites />
-							<Avatar />
-							<Cart />
-						</UserActions>
-					</HeaderUser>
-				</HeaderWrapper>
-			</Container>
+			<HeaderWrapper>
+				<HeaderBurger>
+					<Burger
+						isOpen={isOpen}
+						onClick={() => {
+							setIsOpen((prev) => !prev)
+						}}
+					/>
+				</HeaderBurger>
+				<HeaderLinks>
+					{links.map((el) => (
+						<HeaderLink to={el.path} key={el.name}>
+							<Text bold>{el.name}</Text>
+						</HeaderLink>
+					))}
+				</HeaderLinks>
+				<HeaderLogo>
+					<Logo />
+				</HeaderLogo>
+				<HeaderUser>
+					<HeaderLoaction>
+						<Location />
+						<Text bold>Москва, ул. Науки 25</Text>
+					</HeaderLoaction>
+					<UserActions>
+						<Favorites />
+						<Avatar />
+						<Cart />
+					</UserActions>
+				</HeaderUser>
+			</HeaderWrapper>
 		</>
 	)
 }
