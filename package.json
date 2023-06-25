@@ -47,7 +47,8 @@
     "build": "webpack --env MODE=production",
     "storybook": "storybook dev -c config/.storybook",
     "test:loki": "storybook build -c config/.storybook && loki --requireReference --reactUri file:./storybook-static",
-    "test": "jest"
+    "test": "jest",
+    "loki:approve": "yarn loki approve"
   },
   "typeRoots": [
     "./src/index.d.ts"
