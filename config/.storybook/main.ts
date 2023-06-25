@@ -32,7 +32,7 @@ const config: StorybookConfig = {
         https: false,
         stream: false,
         crypto: false,
-        "crypto-browserify": require.resolve("crypto-browserify"),
+        "crypto-browserify": false,
       },
     };
 
